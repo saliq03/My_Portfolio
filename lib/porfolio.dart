@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/about.dart';
+import 'package:my_portfolio/components/services.dart';
 
 import 'components/home.dart';
 
@@ -16,11 +19,11 @@ class _PortfolioState extends State<Portfolio>{
     ),
     Padding(
       padding: const EdgeInsets.all(8.0),
-      child: TextButton(onPressed: (){}, child: Text('Education',style: TextStyle(color: Colors.white,),)),
+      child: TextButton(onPressed: (){}, child: Text('About',style: TextStyle(color: Colors.white,),)),
     ),
     Padding(
       padding: const EdgeInsets.all(8.0),
-      child: TextButton(onPressed: (){}, child: Text('Skills',style: TextStyle(color: Colors.white,))),
+      child: TextButton(onPressed: (){}, child: Text('Services',style: TextStyle(color: Colors.white,))),
     )
   ];
 
@@ -47,7 +50,8 @@ class _PortfolioState extends State<Portfolio>{
         child: Column(
             children: [
               Home(),
-              About()
+              About(),
+              Services()
             ]
         ),
       ),

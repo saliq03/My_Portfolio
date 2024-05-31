@@ -23,7 +23,7 @@ class HomeState extends State<Home>{
         child: Center(
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 10,
+            spacing: 50,
             runSpacing: 10,
 
             // mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +33,7 @@ class HomeState extends State<Home>{
                 mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Saliq Javeed Dar",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.white,backgroundColor: Colors.black26),),
-                    Text("Fullstack Mobile Developer",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.orange))
+                    Text("Fullstack Mobile Developer",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.orange))
                   ],
               ),
               CircleAvatar(
