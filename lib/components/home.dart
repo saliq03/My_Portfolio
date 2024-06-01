@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Home extends StatefulWidget{
+  const Home({Key? key}) : super(key: key);
   State<Home> createState()=> HomeState();
 }
 class HomeState extends State<Home>{

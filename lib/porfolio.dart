@@ -12,38 +12,61 @@ class Portfolio extends StatefulWidget{
 }
 
 class _PortfolioState extends State<Portfolio>{
-  List<Widget> navitems=[
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextButton(onPressed: (){}, child: Text('Home',style: TextStyle(color: Colors.white,),)),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextButton(onPressed: (){}, child: Text('About',style: TextStyle(color: Colors.white,),)),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextButton(onPressed: (){}, child: Text('Services',style: TextStyle(color: Colors.white,))),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextButton(onPressed: (){},
 
-          child: Text('Resume',style: TextStyle(color: Colors.white,))),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextButton(onPressed: (){}, child: Text('Portfolio',style: TextStyle(color: Colors.white,))),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextButton(onPressed: (){}, child: Text('Contact',style: TextStyle(color: Colors.white,))),
-    ),
-
-  ];
-
+  List<Widget> navitems=[];
 
   bool ismobile=false;
+  final homekey=GlobalKey();
+  final aboutkey=GlobalKey();
+  final servicekey=GlobalKey();
+
+  @override
+  void initState() {
+    navitems=[
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextButton(onPressed: (){
+          Scrollable.ensureVisible(homekey.currentContext!);
+          if(ismobile){Navigator.pop(context);}
+          },
+            child: Text('Home',style: TextStyle(color: Colors.white,),)),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextButton(onPressed: (){
+          Scrollable.ensureVisible(aboutkey.currentContext!);
+        if(ismobile){Navigator.pop(context);}},
+            child: Text('About',style: TextStyle(color: Colors.white,),)),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextButton(onPressed: (){Scrollable.ensureVisible(servicekey.currentContext!);
+        if(ismobile){Navigator.pop(context);}},
+
+            , child: Text('Services',style: TextStyle(color: Colors.white,))),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextButton(onPressed: (){
+          if(ismobile){Navigator.pop(context);}
+        },
+
+            child: Text('Resume',style: TextStyle(color: Colors.white,))),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextButton(onPressed: (){
+          if(ismobile){Navigator.pop(context);}
+        }, child: Text('Portfolio',style: TextStyle(color: Colors.white,))),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextButton(onPressed: (){
+          if(ismobile){Navigator.pop(context);}
+        }, child: Text('Contact',style: TextStyle(color: Colors.white,))),
+      ),];
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     ismobile=MediaQuery.of(context).size.width>700 ? false:true;
@@ -64,9 +87,9 @@ class _PortfolioState extends State<Portfolio>{
       body: SingleChildScrollView(
         child: Column(
             children: [
-              Home(),
-              About(),
-              Services()
+              Home(key: homekey,),
+              About(key: aboutkey,),
+              Services(key: servicekey,)
             ]
         ),
       ),
