@@ -24,7 +24,22 @@ class _PortfolioState extends State<Portfolio>{
     Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextButton(onPressed: (){}, child: Text('Services',style: TextStyle(color: Colors.white,))),
-    )
+    ),
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextButton(onPressed: (){},
+
+          child: Text('Resume',style: TextStyle(color: Colors.white,))),
+    ),
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextButton(onPressed: (){}, child: Text('Portfolio',style: TextStyle(color: Colors.white,))),
+    ),
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextButton(onPressed: (){}, child: Text('Contact',style: TextStyle(color: Colors.white,))),
+    ),
+
   ];
 
 

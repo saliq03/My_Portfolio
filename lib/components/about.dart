@@ -11,10 +11,14 @@ class AboutState extends State<About>{
     return Container(
         width:  mediaQuery.size.width*1,
         // height: 550,
-      color: Colors.black45,
+        decoration: BoxDecoration(
+        image: DecorationImage(
+        image:AssetImage("assets/images/aboutbg.jpg"),
+    fit: BoxFit.cover
+    )),
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.only(top: 50,bottom: 70,right: 20,left: 20),
+          padding: const EdgeInsets.only(top: 50,bottom: 100,right: 20,left: 20),
           child: Column(
               children: [
                 Text("ABOUT",style: TextStyle(color: Colors.white,fontSize: 40,fontWeight: FontWeight.bold,),),
@@ -54,19 +58,24 @@ class AboutState extends State<About>{
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Flutter Developer",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold)),
+          Text("Flutter Developer",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.white)),
           SizedBox(
             width: 700,
             child: Text("Hello! I’m Saliq Javeed , a Flutter Developer with a robust skill set in  Flutter,"
                 " Dart, SQL, Java, XML, SQLite, and more. Currently in my final  year of B.Tech Computer Science,"
                 " I'm actively working as an intern on  the Miety project at MANUU. With my knowledge "
                 "and experience,  I strive to create efficient and innovative solutions in the realm of mobile development.",
-                style: TextStyle(fontSize:20)),
+                style: TextStyle(fontSize:20,color: Colors.white)),
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: 30,),
           myRichText('Name', 'Saliq Javeed Dar'),
-          myRichText('Name', 'Saliq Javeed Dar'),
-
+          SizedBox(height: 10,),
+          myRichText('Age', '20 years'),
+          SizedBox(height: 10,),
+          myRichText('Email', 'javidsaliq@gmail.com'),
+          SizedBox(height: 10,),
+          myRichText('Freelance', 'Available'),
+          SizedBox(height: 10,),
         ]
     );
   }
@@ -76,12 +85,12 @@ class AboutState extends State<About>{
         text: TextSpan(
           children: [
             TextSpan(
-              text: '$name:',
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,)
+              text: '$name: ',
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.white70)
             ),
             TextSpan(
                 text: ' $data',
-                style: TextStyle(fontSize: 20)
+                style: TextStyle(fontSize: 20,color: Colors.white)
             )
           ]
         )

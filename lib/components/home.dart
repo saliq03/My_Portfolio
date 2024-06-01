@@ -18,30 +18,30 @@ class HomeState extends State<Home>{
         image: DecorationImage(
           image:AssetImage("assets/images/homebg.jpg"),
           fit: BoxFit.cover
-        )
-        ),
-        child: Center(
-          child: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 50,
-            runSpacing: 10,
+        )),
+        child: Padding(
+          padding: const EdgeInsets.all(0),
+          child: Center(
+            child: Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              alignment: WrapAlignment.center,
+              spacing: 50,
+              runSpacing: 10,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Saliq Javeed Dar",style: TextStyle(fontSize: mediaQuery.size.width<485 ?20:40,fontWeight: FontWeight.bold,color: Colors.white,backgroundColor: Colors.black26),),
+                      Text("Fullstack Mobile Developer",style: TextStyle(fontSize: mediaQuery.size.width<485 ?20:40,fontWeight: FontWeight.bold,color: Colors.orange))
+                    ],
+                ),
+                CircleAvatar(
+                  radius:mediaQuery.size.width<500 ?120:150,
+                  backgroundImage: AssetImage('assets/images/saliq.jpg'),
+                ),
 
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Saliq Javeed Dar",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.white,backgroundColor: Colors.black26),),
-                    Text("Fullstack Mobile Developer",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.orange))
-                  ],
-              ),
-              CircleAvatar(
-                radius: 150,
-                backgroundImage: AssetImage('assets/images/saliq.jpg'),
-              ),
-
-            ],
+              ],
+            ),
           ),
         ),
       );
