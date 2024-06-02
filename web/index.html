@@ -34,5 +34,24 @@
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyB6TBd1Ug8hfsZbaBwlnsFfPLCLCfFkA3k",
+      authDomain: "saliq-porfolio.firebaseapp.com",
+      projectId: "saliq-porfolio",
+      storageBucket: "saliq-porfolio.appspot.com",
+      messagingSenderId: "478292663516",
+      appId: "1:478292663516:web:5f586fe828c15b2f502819"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
 </body>
 </html>
