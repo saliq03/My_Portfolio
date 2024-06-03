@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A portfolio website for saliq.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
@@ -21,13 +21,13 @@
         },
         {
             "src": "icons/Icon-maskable-192.png",
-            "sizes": "192x192",
+            "sizes": "16x16",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
             "src": "icons/Icon-maskable-512.png",
-            "sizes": "512x512",
+            "sizes": "32x32",
             "type": "image/png",
             "purpose": "maskable"
         }

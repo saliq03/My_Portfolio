@@ -20,6 +20,7 @@ class _PortfolioState extends State<Portfolio>{
   final homekey=GlobalKey();
   final aboutkey=GlobalKey();
   final servicekey=GlobalKey();
+  final contactkey=GlobalKey();
 
   @override
   void initState() {
@@ -62,6 +63,7 @@ class _PortfolioState extends State<Portfolio>{
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: TextButton(onPressed: (){
+          Scrollable.ensureVisible(contactkey.currentContext!);
           if(ismobile){Navigator.pop(context);}
         }, child: Text('Contact',style: TextStyle(color: Colors.white,))),
       ),];
@@ -90,7 +92,7 @@ class _PortfolioState extends State<Portfolio>{
               Home(key: homekey,),
               About(key: aboutkey,),
               Services(key: servicekey,),
-              Contact(),
+              Contact(key: contactkey,),
             ]
         ),
       ),
