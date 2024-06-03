@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/about.dart';
 import 'package:my_portfolio/components/contact.dart';
+import 'package:my_portfolio/components/resume.dart';
 import 'package:my_portfolio/components/services.dart';
 
 import 'components/home.dart';
@@ -20,6 +21,7 @@ class _PortfolioState extends State<Portfolio>{
   final homekey=GlobalKey();
   final aboutkey=GlobalKey();
   final servicekey=GlobalKey();
+  final resumetkey=GlobalKey();
   final contactkey=GlobalKey();
 
   @override
@@ -49,6 +51,7 @@ class _PortfolioState extends State<Portfolio>{
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: TextButton(onPressed: (){
+          Scrollable.ensureVisible(resumetkey.currentContext!);
           if(ismobile){Navigator.pop(context);}
         },
 
@@ -92,7 +95,9 @@ class _PortfolioState extends State<Portfolio>{
               Home(key: homekey,),
               About(key: aboutkey,),
               Services(key: servicekey,),
+              Resume(key: resumetkey,),
               Contact(key: contactkey,),
+
             ]
         ),
       ),
