@@ -20,8 +20,12 @@ class Resume extends StatelessWidget{
           SizedBox(height: 30,),
           Row(mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            WorkExperience()
+            WorkExperience(),
+            SizedBox(width: 10,),
+            WorkExperience(),
           ],),
+          SizedBox(height: 10,),
+          WorkExperience()
 
         ]
 
