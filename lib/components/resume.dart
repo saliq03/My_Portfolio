@@ -31,45 +31,38 @@ class Resume extends StatelessWidget{
 
   Widget WorkExperience(){
     return Container(
-      color: CupertinoColors.white,
+      decoration: BoxDecoration(
+          color: CupertinoColors.white,
+          borderRadius: BorderRadius.circular(6)
+      ),
      child: Padding(
        padding: const EdgeInsets.all(10),
        child: Column(
          children: [
-           Text("Experience",style: TextStyle(fontWeight: FontWeight.bold),),
+           Text("Experience",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
            SizedBox(height: 10,),
            Container(
-             color: Colors.purpleAccent.shade100,
+             decoration: BoxDecoration(
+               color: Colors.purpleAccent.shade100,
+               borderRadius: BorderRadius.circular(11)
+             ),
              child: Padding(
                padding: const EdgeInsets.all(8.0),
                child: Column(
                  children: [
-                   Text("Meity Project MANUU",style: TextStyle(fontWeight: FontWeight.bold),),
+                   Text("Meity Project MANUU",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
+                   SizedBox(height: 5,),
                    Row(children: [
-                     Text('March 2024-current'),
+                     Text('03/2024-PRESENT',style: TextStyle(fontWeight: FontWeight.bold),),
                    Text(' | ',style: TextStyle(fontSize:20,fontWeight: FontWeight.bold,color: CupertinoColors.white),),
-                   Text("Intern")],),
+                   Text("INTERN",style: TextStyle(fontWeight: FontWeight.bold,),)],),
                    Text("Flutter Developer")
                  ]
                ),
              ),),
 
            SizedBox(height: 10,),
-           Container(
-             color: Colors.purpleAccent.shade100,
-             child: Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: Column(
-                   children: [
-                     Text("Meity Project MANUU",style: TextStyle(fontWeight: FontWeight.bold),),
-                     Row(children: [
-                       Text('March 2024-current'),
-                       Text(' | ',style: TextStyle(fontSize:20,fontWeight: FontWeight.bold,color: CupertinoColors.white),),
-                       Text("Intern")],),
-                     Text("Flutter Developer")
-                   ]
-               ),
-             ),),
+
          ],
        ),
      ),
