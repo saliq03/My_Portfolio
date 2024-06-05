@@ -25,7 +25,7 @@ class Resume extends StatelessWidget{
             WorkExperience(),
           ],),
           SizedBox(height: 10,),
-          WorkExperience()
+          Skills()
 
         ]
 
@@ -70,6 +70,38 @@ class Resume extends StatelessWidget{
          ],
        ),
      ),
+    );
+  }
+
+  Widget Skills(){
+    return Container(
+      decoration: BoxDecoration(
+        color: CupertinoColors.white,
+        borderRadius: BorderRadius.circular(4)
+      ),
+      child: Wrap(
+        children: [
+          Column(
+            children: [
+              Text("Programming languages",style: TextStyle(fontWeight: FontWeight.bold),),
+              SizedBox(height: 10,),
+              Text('Dart'),
+              Text('java'),
+              Text('c++'),
+              Text('c'),
+            ],
+          ),
+          SizedBox(width: 20,),
+          Column(
+            children: [
+              Text("Framworks",style: TextStyle(fontWeight: FontWeight.bold),),
+              SizedBox(height: 10,),
+              Text('Flutter'),
+
+            ],
+          )
+        ],
+      ),
     );
   }
 }
