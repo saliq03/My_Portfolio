@@ -1,8 +1,12 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timelines/timelines.dart';
 
 class Resume extends StatelessWidget{
   const Resume({Key? key}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQuery=MediaQuery.of(context);
@@ -22,7 +26,7 @@ class Resume extends StatelessWidget{
           children: [
             WorkExperience(),
             SizedBox(width: 10,),
-            WorkExperience(),
+           Education()
           ],),
           SizedBox(height: 10,),
           Skills()
@@ -102,6 +106,89 @@ class Resume extends StatelessWidget{
           )
         ],
       ),
+    );
+  }
+
+
+
+  Widget Education(){
+    final List<Widget> events=[
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          child: Column(
+            children: [
+              Text('20 March 2018',style: TextStyle(color: Colors.indigo,fontSize: 12),),
+              Text('Passed 10th',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+              Text('10th grade from jkbose with 90% marks from hanfia model high school',style: TextStyle(color: Colors.grey,fontSize: 14),)
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          child: Column(
+            children: [
+              Text('20 March 2020'),
+              Text('Passed 12th'),
+              Text('12th grade from this particular college with 91% percentage')
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          child: Column(
+            children: [
+              Text('20 March 2018'),
+              Text('Passed 10th'),
+              Text('10th grade from this particular college with 90% percentage')
+            ],
+          ),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          child: Column(
+            children: [
+              Text('20 March 2018'),
+              Text('Passed 10th'),
+              Text('10th grade from this particular college with 90% percentage')
+            ],
+          ),
+        ),
+      ),
+    ];
+    return Container(
+      decoration: BoxDecoration(
+        color: CupertinoColors.white,
+        borderRadius: BorderRadius.circular(11)
+      ),
+    width: 800,
+    child: Padding(
+      padding: const EdgeInsets.all(10),
+      child: Column(
+        children: [
+          Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
+         Timeline.tileBuilder(
+           shrinkWrap: true,
+           scrollDirection: Axis.vertical,
+           builder: TimelineTileBuilder.fromStyle(
+             itemCount: 4,
+             contentsAlign: ContentsAlign.alternating,
+             contentsBuilder: (context,index){
+               return Card(
+                 child: events[index],
+               );
+             }
+           )
+         )
+        ],
+      ),
+    ),
     );
   }
 }
