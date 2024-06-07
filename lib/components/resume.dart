@@ -19,10 +19,13 @@ class Resume extends StatelessWidget{
     )),
 
       child: Column(
+
         children:[
           Text("Resume",style: TextStyle(color: CupertinoColors.white,fontWeight: FontWeight.bold,fontSize: 40),),
-          SizedBox(height: 30,),
-          Row(mainAxisAlignment: MainAxisAlignment.center,
+          SizedBox(height: 20,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment:CrossAxisAlignment.start ,
           children: [
             WorkExperience(),
             SizedBox(width: 10,),
@@ -113,55 +116,10 @@ class Resume extends StatelessWidget{
 
   Widget Education(){
     final List<Widget> events=[
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          child: Column(
-            children: [
-              Text('20 March 2018',style: TextStyle(color: Colors.indigo,fontSize: 12),),
-              Text('Passed 10th',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
-              Text('10th grade from jkbose with 90% marks from hanfia model high school',style: TextStyle(color: Colors.grey,fontSize: 14),)
-            ],
-          ),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          child: Column(
-            children: [
-              Text('20 March 2020'),
-              Text('Passed 12th'),
-              Text('12th grade from this particular college with 91% percentage')
-            ],
-          ),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          child: Column(
-            children: [
-              Text('20 March 2018'),
-              Text('Passed 10th'),
-              Text('10th grade from this particular college with 90% percentage')
-            ],
-          ),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          child: Column(
-            children: [
-              Text('20 March 2018'),
-              Text('Passed 10th'),
-              Text('10th grade from this particular college with 90% percentage')
-            ],
-          ),
-        ),
-      ),
-    ];
+      EducationBoxes('August 2021 - April 2025', 'Maulana Azad National Urdu University','Hyderabad,Telangana', 'B.tech- CS and IT', 'CGPA: 8.97 out of 10'),
+      EducationBoxes('December 2020','Govt.Higher Secondary School','Nehalpora Pattan, J&K','12th-PCM , JKBOSE','Percentage: 91%'),
+      EducationBoxes('December 2018','Hanfia Model High School','Warpora Pattan, J&K','10th, JKBOSE','Percentage: 92%'),];
+
     return Container(
       decoration: BoxDecoration(
         color: CupertinoColors.white,
@@ -173,11 +131,12 @@ class Resume extends StatelessWidget{
       child: Column(
         children: [
           Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
+         SizedBox(height: 10,),
          Timeline.tileBuilder(
            shrinkWrap: true,
            scrollDirection: Axis.vertical,
            builder: TimelineTileBuilder.fromStyle(
-             itemCount: 4,
+             itemCount: events.length,
              contentsAlign: ContentsAlign.alternating,
              contentsBuilder: (context,index){
                return Card(
@@ -189,6 +148,24 @@ class Resume extends StatelessWidget{
         ],
       ),
     ),
+    );
+  }
+
+  Widget EducationBoxes(String date,String College,String location,String degree,String percentage){
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Container(
+        child: Column(
+          children: [
+            Text(date,style: TextStyle(color: Colors.indigo,fontSize: 12),),
+            SizedBox(height: 5,),
+            Text(College,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+            Text(location,style: TextStyle(color: Colors.grey.shade600,fontSize: 14)),
+            Text(degree,style: TextStyle(color: Colors.grey.shade600,fontSize: 14),),
+            Text(percentage,style: TextStyle(color: Colors.grey.shade600,fontSize: 14),)
+          ],
+        ),
+      ),
     );
   }
 }
