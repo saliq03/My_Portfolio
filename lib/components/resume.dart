@@ -86,27 +86,39 @@ class Resume extends StatelessWidget{
         color: CupertinoColors.white,
         borderRadius: BorderRadius.circular(4)
       ),
-      child: Wrap(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
+          Text('Skills',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
+          SizedBox(height: 20,),
+          Wrap(
             children: [
-              Text("Programming languages",style: TextStyle(fontWeight: FontWeight.bold),),
-              SizedBox(height: 10,),
-              Text('Dart'),
-              Text('java'),
-              Text('c++'),
-              Text('c'),
+              Column(
+                children: [
+                  Text("Programming languages",style: TextStyle(fontWeight: FontWeight.bold),),
+                  SizedBox(height: 10,),
+                  Chip(label: Text("Dart"),
+                       labelStyle: TextStyle(color: Colors.indigo),
+                       labelPadding: EdgeInsets.only(left: 3,right: 3,top: -3,bottom: -3),
+                       side: BorderSide(color: Colors.indigo),
+                       backgroundColor:Colors.white,),
+
+                  Text('java'),
+                  Text('c++'),
+                  Text('c'),
+                ],
+              ),
+              SizedBox(width: 20,),
+              Column(
+                children: [
+                  Text("Framworks",style: TextStyle(fontWeight: FontWeight.bold),),
+                  SizedBox(height: 10,),
+                  Text('Flutter'),
+
+                ],
+              )
             ],
           ),
-          SizedBox(width: 20,),
-          Column(
-            children: [
-              Text("Framworks",style: TextStyle(fontWeight: FontWeight.bold),),
-              SizedBox(height: 10,),
-              Text('Flutter'),
-
-            ],
-          )
         ],
       ),
     );
