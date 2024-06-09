@@ -32,7 +32,7 @@ class Resume extends StatelessWidget{
             SizedBox(width: 10,),
            Education()
           ],),
-          SizedBox(height: 10,),
+          SizedBox(height: 20,),
           Skills()
 
         ]
@@ -86,43 +86,24 @@ class Resume extends StatelessWidget{
 
 //                    ----->   SKILLS    <------
   Widget Skills(){
-    return Padding(
-      padding: const EdgeInsets.only(left: 20,right: 20),
-      child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(11),
-            color: Colors.white
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text('Tech Skills Skills',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26,),),
-            Divider(),
-            SizedBox(height: 20,),
-            Wrap(
-                runSpacing: 10,
-                spacing: 10,
-                children: [
-                  SkillChip("Dart"),
-                  SkillChip("Java"),
-                  SkillChip("C++"),
-                  SkillChip("C"),
-                  SkillChip("Flutter"),
-                  SkillChip("Git"),
-                  SkillChip("Git Hub"),
-                  SkillChip("Figma"),
-                  SkillChip("My SQL"),
-                  SkillChip("SQLite"),
-                  SkillChip("Firebase"),
-                  SkillChip("Ubanto OS"),
-                  SkillChip("Vs Code"),
-                  SkillChip("Android Studio"),
-                   ],
-                  ),
+    return Container(
 
-              ],
-            ),
-      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text('Skills',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26,color: CupertinoColors.white),),
+          SizedBox(height: 5,),
+          Wrap(
+            runSpacing: 10,
+            spacing: 10,
+            children: [
+              SkillProgrammingLanguages(),
+              SkillFrameworks(),
+              SkillOtherTools()
+               ],
+              )
+            ],
+          ),
     );
   }
 
@@ -132,10 +113,11 @@ class Resume extends StatelessWidget{
       borderRadius: BorderRadius.circular(11),
         color: Colors.white
       ),
-      width: 300,
+      width: 280,
       child:  Padding(
-        padding: const EdgeInsets.only(top: 10,bottom: 10),
+        padding: const EdgeInsets.only(top: 10,bottom: 10,left: 7,right: 7),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Programming languages",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
             Divider(),
@@ -154,17 +136,78 @@ class Resume extends StatelessWidget{
     );
   }
 
+  Widget SkillFrameworks(){
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(11),
+          color: Colors.white
+      ),
+      width: 280,
+      child:  Padding(
+        padding: const EdgeInsets.only(top: 10,bottom: 10,left: 7,right: 7),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Frame Works",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+            Divider(),
+            Wrap(
+              children: [
+                SkillChip("Flutter"),
+
+              ],
+            )
+
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget SkillOtherTools(){
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(11),
+          color: Colors.white
+      ),
+      width: 280,
+      child:  Padding(
+        padding: const EdgeInsets.only(top: 10,bottom: 10,left: 7,right: 7),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Other Tools",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+            Divider(),
+            Wrap(
+              children: [
+                SkillChip("My SQL"),
+                SkillChip("SQLite"),
+                SkillChip("Firebase"),
+                SkillChip("XML"),
+                SkillChip("Git"),
+                SkillChip("Git Hub"),
+                SkillChip("Ubuntu OS"),
+                SkillChip("VS Code"),
+                SkillChip("Android Studio"),
+              ],
+            )
+
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget SkillChip(String data){
     return Padding(
       padding: const EdgeInsets.only(top: 3,bottom: 3,left:3,right: 3),
       child: Container(
         child: Padding(
           padding: const EdgeInsets.only(left: 5,right: 5),
-          child: Text(data,style: TextStyle(color: Colors.indigo),),
+          child: Text(data,style: TextStyle(color: Colors.cyan),),
         ),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
-            border:  Border.all(color: Colors.indigo,width: 1)
+            border:  Border.all(color: Colors.cyan,width: 1)
         ),
       ),
     );
