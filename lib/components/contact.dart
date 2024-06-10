@@ -56,6 +56,11 @@ class Contact extends StatelessWidget{
                     icon: FaIcon(FontAwesomeIcons.instagram,color: Colors.white,)),
 
               ],
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Text("Copyright © 2024 Saliq Javeed Dar, All rights Reserved.",style: TextStyle(color: Colors.white70,fontSize: 16),),
             )
 
           ],
