@@ -17,7 +17,7 @@ class Contact extends StatelessWidget{
           )),
       
       child: Padding(
-        padding: const EdgeInsets.only(top: 40,bottom: 50,right: 20,left:40),
+        padding: const EdgeInsets.only(top: 40,bottom: 30,right: 20,left:40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment:CrossAxisAlignment.center,
@@ -60,7 +60,7 @@ class Contact extends StatelessWidget{
 
             Padding(
               padding: const EdgeInsets.only(top: 20),
-              child: Text("Copyright © 2024 Saliq Javeed Dar, All rights Reserved.",style: TextStyle(color: Colors.white70,fontSize: 16),),
+              child: Text("Copyright © 2024 Saliq Javeed, All rights Reserved.",style: TextStyle(color: Colors.white70,fontSize: 16),),
             )
 
           ],
