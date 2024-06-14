@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timelines/timelines.dart';
 
@@ -11,6 +12,7 @@ class Resume extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQuery=MediaQuery.of(context);
+    var ismobile=mediaQuery.size.width>500 ? false:true;
     return Container(
         width:  mediaQuery.size.width*1,
         decoration: BoxDecoration(
@@ -24,13 +26,13 @@ class Resume extends StatelessWidget{
         children:[
           Text("Resume",style: TextStyle(color: CupertinoColors.white,fontWeight: FontWeight.bold,fontSize: 40),),
           SizedBox(height: 20,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment:CrossAxisAlignment.start ,
+          Wrap(
+            alignment: WrapAlignment.center,
+          crossAxisAlignment:WrapCrossAlignment.start ,
           children: [
             WorkExperience(),
-            SizedBox(width: 10,),
-           Education()
+            SizedBox(width: 10,height: 10,),
+           Education(ismobile)
           ],),
           SizedBox(height: 20,),
           Skills()
@@ -44,42 +46,49 @@ class Resume extends StatelessWidget{
 
   //                     ---->    WORK   <-----
   Widget WorkExperience(){
-    return Container(
-      decoration: BoxDecoration(
-          color: CupertinoColors.white,
-          borderRadius: BorderRadius.circular(6)
-      ),
-     child: Padding(
-       padding: const EdgeInsets.all(10),
-       child: Column(
-         children: [
-           Text("Experience",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
-           SizedBox(height: 10,),
-           Container(
-             decoration: BoxDecoration(
-               color: Colors.purpleAccent.shade100,
-               borderRadius: BorderRadius.circular(11)
-             ),
-             child: Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: Column(
-                 children: [
-                   Text("Meity Project MANUU",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
-                   SizedBox(height: 5,),
-                   Row(children: [
-                     Text('03/2024-PRESENT',style: TextStyle(fontWeight: FontWeight.bold),),
-                   Text(' | ',style: TextStyle(fontSize:20,fontWeight: FontWeight.bold,color: CupertinoColors.white),),
-                   Text("INTERN",style: TextStyle(fontWeight: FontWeight.bold,),)],),
-                   Text("Flutter Developer")
-                 ]
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: Container(
+        decoration: BoxDecoration(
+            color: CupertinoColors.white,
+            borderRadius: BorderRadius.circular(6)
+        ),
+       width: 290,
+       child: Padding(
+         padding: const EdgeInsets.all(7),
+         child: Column(
+           children: [
+             Text("Experience",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
+             SizedBox(height: 10,),
+             Container(
+               decoration: BoxDecoration(
+                 color: Colors.purpleAccent.shade100,
+                 borderRadius: BorderRadius.circular(11)
                ),
-             ),),
+               child: Center(
+                 child: Padding(
+                   padding: const EdgeInsets.only(top: 8,bottom: 8),
+                   child: Column(
+                     children: [
+                       Text("Meity Project MANUU",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
+                       SizedBox(height: 5,),
+                       Row(mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                         Text('03/2024-PRESENT',style: TextStyle(fontWeight: FontWeight.bold),),
+                       Text(' | ',style: TextStyle(fontSize:20,fontWeight: FontWeight.bold,color: CupertinoColors.white),),
+                       Text("INTERN",style: TextStyle(fontWeight: FontWeight.bold,),)],),
+                       Text("Flutter Developer")
+                     ]
+                   ),
+                 ),
+               ),),
 
-           SizedBox(height: 10,),
+             SizedBox(height: 10,),
 
-         ],
+           ],
+         ),
        ),
-     ),
+      ),
     );
   }
 
@@ -216,7 +225,7 @@ class Resume extends StatelessWidget{
 
 
 //                ------>       EDUCATION   <------
-  Widget Education(){
+  Widget Education(bool ismobile){
     final List<Widget> events=[
       EducationBoxes('August 2021 - April 2025', 'Maulana Azad National Urdu University','Hyderabad,Telangana', 'B.tech- CS and IT', 'CGPA: 8.97 out of 10'),
       EducationBoxes('December 2020','Govt.Higher Secondary School','Nehalpora Pattan, J&K','12th-PCM , JKBOSE','Percentage: 91%'),
@@ -236,9 +245,14 @@ class Resume extends StatelessWidget{
          Timeline.tileBuilder(
            shrinkWrap: true,
            scrollDirection: Axis.vertical,
+
            builder: TimelineTileBuilder.fromStyle(
+
              itemCount: events.length,
-             contentsAlign: ContentsAlign.alternating,
+             contentsAlign: ismobile?ContentsAlign.basic: ContentsAlign.alternating,
+               oppositeContentsBuilder: ismobile
+                   ? (context, index) => SizedBox.shrink()
+                   : null,
              contentsBuilder: (context,index){
                return Card(
                  child: events[index],
