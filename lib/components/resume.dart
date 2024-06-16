@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:timelines/timelines.dart';
+// import 'package:timelines/timelines.dart';
+import 'package:timeline_tile/timeline_tile.dart';
+
 
 class Resume extends StatelessWidget{
   const Resume({Key? key}) : super(key: key);
@@ -32,7 +34,7 @@ class Resume extends StatelessWidget{
           children: [
             WorkExperience(),
             SizedBox(width: 10,height: 10,),
-           Education(ismobile)
+           Education()
           ],),
           SizedBox(height: 20,),
           Skills()
@@ -225,7 +227,7 @@ class Resume extends StatelessWidget{
 
 
 //                ------>       EDUCATION   <------
-  Widget Education(bool ismobile){
+  Widget Education(){
     final List<Widget> events=[
       EducationBoxes('August 2021 - April 2025', 'Maulana Azad National Urdu University','Hyderabad,Telangana', 'B.tech- CS and IT', 'CGPA: 8.97 out of 10'),
       EducationBoxes('December 2020','Govt.Higher Secondary School','Nehalpora Pattan, J&K','12th-PCM , JKBOSE','Percentage: 91%'),
@@ -249,10 +251,8 @@ class Resume extends StatelessWidget{
            builder: TimelineTileBuilder.fromStyle(
 
              itemCount: events.length,
-             contentsAlign: ismobile?ContentsAlign.basic: ContentsAlign.alternating,
-               oppositeContentsBuilder: ismobile
-                   ? (context, index) => SizedBox.shrink()
-                   : null,
+             contentsAlign:ContentsAlign.alternating,
+
              contentsBuilder: (context,index){
                return Card(
                  child: events[index],
@@ -263,6 +263,36 @@ class Resume extends StatelessWidget{
         ],
       ),
     ),
+    );
+  }
+
+  Widget EducationMobileview(){
+    return Container(
+      decoration: BoxDecoration(
+          color: CupertinoColors.white,
+          borderRadius: BorderRadius.circular(11)
+      ),
+      width: 800,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
+            SizedBox(height: 10,),
+            ListView(
+              children: [
+
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+  Widget Mytimelinetile(){
+    return TimelineTile(
+      indicatorStyle: IndicatorStyle(color: Colors.purpleAccent,width: 20),
+      afterLineStyle: LineStyle(color: Colors.purpleAccent,thickness: 1),
     );
   }
 
