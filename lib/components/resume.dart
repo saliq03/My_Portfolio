@@ -64,7 +64,7 @@ class Resume extends StatelessWidget{
              SizedBox(height: 10,),
              Container(
                decoration: BoxDecoration(
-                 color: Colors.purpleAccent.shade100,
+                 color: Colors.purple.shade100,
                  borderRadius: BorderRadius.circular(11)
                ),
                child: Center(
@@ -267,25 +267,29 @@ class Resume extends StatelessWidget{
 //   }
 
   Widget EducationMobileview(){
+    final List<Widget> events=[
+      EducationBoxes('August 2021 - April 2025', 'Maulana Azad National Urdu University','Hyderabad,Telangana', 'B.tech- CS and IT', 'CGPA: 8.97 out of 10'),
+      EducationBoxes('December 2020','Govt.Higher Secondary School','Nehalpora Pattan, J&K','12th-PCM , JKBOSE','Percentage: 91%'),
+      EducationBoxes('December 2018','Hanfia Model High School','Warpora Pattan, J&K','10th, JKBOSE','Percentage: 92%'),];
     return Container(
       decoration: BoxDecoration(
           color: CupertinoColors.white,
           borderRadius: BorderRadius.circular(11)
       ),
-      width: 800,
-      height: 400,
-      child: Padding(
+      width: 450,
+      height: 500,
+        child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
-            SizedBox(height: 10,),
+            SizedBox(height: 15,),
             Expanded(
               child: ListView(
                 children: [
-                  Mytimelinetile(Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),true),
-                  Mytimelinetile(Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),false),
-                  Mytimelinetile(Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),false),
+                  Mytimelinetile(events[0], true,false),
+                  Mytimelinetile(events[1], false,false),
+                  Mytimelinetile(events[2], false,true),
                 ],
               ),
             )
@@ -294,12 +298,23 @@ class Resume extends StatelessWidget{
       ),
     );
   }
-  Widget Mytimelinetile(Widget eventcard,bool isfirst){
+  Widget Mytimelinetile(Widget eventcard,bool isfirst,bool islast){
     return TimelineTile(
       isFirst: isfirst,
+      isLast: islast,
       indicatorStyle: IndicatorStyle(color: Colors.purpleAccent,width: 20),
       beforeLineStyle: LineStyle(color: Colors.purpleAccent,thickness: 1),
-      endChild: eventcard ,
+      endChild: Padding(
+        padding: const EdgeInsets.only(bottom: 10,left: 10),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.purple.shade100,
+            borderRadius: BorderRadius.circular(6)
+          ),
+        
+          child: eventcard,
+        ),
+      ),
 
     );
   }
