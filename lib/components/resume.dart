@@ -34,7 +34,7 @@ class Resume extends StatelessWidget{
           children: [
             WorkExperience(),
             SizedBox(width: 10,height: 10,),
-           Education()
+           EducationMobileview()
           ],),
           SizedBox(height: 20,),
           Skills()
@@ -227,44 +227,44 @@ class Resume extends StatelessWidget{
 
 
 //                ------>       EDUCATION   <------
-  Widget Education(){
-    final List<Widget> events=[
-      EducationBoxes('August 2021 - April 2025', 'Maulana Azad National Urdu University','Hyderabad,Telangana', 'B.tech- CS and IT', 'CGPA: 8.97 out of 10'),
-      EducationBoxes('December 2020','Govt.Higher Secondary School','Nehalpora Pattan, J&K','12th-PCM , JKBOSE','Percentage: 91%'),
-      EducationBoxes('December 2018','Hanfia Model High School','Warpora Pattan, J&K','10th, JKBOSE','Percentage: 92%'),];
-    return Container(
-      decoration: BoxDecoration(
-        color: CupertinoColors.white,
-        borderRadius: BorderRadius.circular(11)
-      ),
-    width: 800,
-    child: Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
-         SizedBox(height: 10,),
-         Timeline.tileBuilder(
-           shrinkWrap: true,
-           scrollDirection: Axis.vertical,
-
-           builder: TimelineTileBuilder.fromStyle(
-
-             itemCount: events.length,
-             contentsAlign:ContentsAlign.alternating,
-
-             contentsBuilder: (context,index){
-               return Card(
-                 child: events[index],
-               );
-             }
-           )
-         )
-        ],
-      ),
-    ),
-    );
-  }
+//   Widget Education(){
+//     final List<Widget> events=[
+//       EducationBoxes('August 2021 - April 2025', 'Maulana Azad National Urdu University','Hyderabad,Telangana', 'B.tech- CS and IT', 'CGPA: 8.97 out of 10'),
+//       EducationBoxes('December 2020','Govt.Higher Secondary School','Nehalpora Pattan, J&K','12th-PCM , JKBOSE','Percentage: 91%'),
+//       EducationBoxes('December 2018','Hanfia Model High School','Warpora Pattan, J&K','10th, JKBOSE','Percentage: 92%'),];
+//     return Container(
+//       decoration: BoxDecoration(
+//         color: CupertinoColors.white,
+//         borderRadius: BorderRadius.circular(11)
+//       ),
+//     width: 800,
+//     child: Padding(
+//       padding: const EdgeInsets.all(10),
+//       child: Column(
+//         children: [
+//           Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
+//          SizedBox(height: 10,),
+//          Timeline.tileBuilder(
+//            shrinkWrap: true,
+//            scrollDirection: Axis.vertical,
+//
+//            builder: TimelineTileBuilder.fromStyle(
+//
+//              itemCount: events.length,
+//              contentsAlign:ContentsAlign.alternating,
+//
+//              contentsBuilder: (context,index){
+//                return Card(
+//                  child: events[index],
+//                );
+//              }
+//            )
+//          )
+//         ],
+//       ),
+//     ),
+//     );
+//   }
 
   Widget EducationMobileview(){
     return Container(
@@ -273,26 +273,34 @@ class Resume extends StatelessWidget{
           borderRadius: BorderRadius.circular(11)
       ),
       width: 800,
+      height: 400,
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),
             SizedBox(height: 10,),
-            ListView(
-              children: [
-
-              ],
+            Expanded(
+              child: ListView(
+                children: [
+                  Mytimelinetile(Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),true),
+                  Mytimelinetile(Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),false),
+                  Mytimelinetile(Text('Education',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26),),false),
+                ],
+              ),
             )
           ],
         ),
       ),
     );
   }
-  Widget Mytimelinetile(){
+  Widget Mytimelinetile(Widget eventcard,bool isfirst){
     return TimelineTile(
+      isFirst: isfirst,
       indicatorStyle: IndicatorStyle(color: Colors.purpleAccent,width: 20),
-      afterLineStyle: LineStyle(color: Colors.purpleAccent,thickness: 1),
+      beforeLineStyle: LineStyle(color: Colors.purpleAccent,thickness: 1),
+      endChild: eventcard ,
+
     );
   }
 
