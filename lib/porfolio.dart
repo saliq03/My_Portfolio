@@ -1,12 +1,10 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/about.dart';
 import 'package:my_portfolio/components/contact.dart';
 import 'package:my_portfolio/components/resume.dart';
 import 'package:my_portfolio/components/services.dart';
-
+import 'package:my_portfolio/widgets/Mybuttons.dart';
 import 'components/home.dart';
 
 class Portfolio extends StatefulWidget{
@@ -23,52 +21,36 @@ class _PortfolioState extends State<Portfolio>{
   final servicekey=GlobalKey();
   final resumetkey=GlobalKey();
   final contactkey=GlobalKey();
+  final projectkey=GlobalKey();
+
+  Color proCol=Colors.white70;
 
   @override
   void initState() {
     navitems=[
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: TextButton(onPressed: (){
-          Scrollable.ensureVisible(homekey.currentContext!);
-          if(ismobile){Navigator.pop(context);}
-          },
-            child: Text('Home',style: TextStyle(color: Colors.white,),)),
+        child: HeaderButton(name: "Home",mykey: homekey),
+      ),
+      Padding(
+          padding: const EdgeInsets.all(8.0),
+        child: HeaderButton(name: "About",mykey: aboutkey),
       ),
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: TextButton(onPressed: (){
-          Scrollable.ensureVisible(aboutkey.currentContext!);
-        if(ismobile){Navigator.pop(context);}},
-            child: Text('About',style: TextStyle(color: Colors.white,),)),
+        child: HeaderButton(name: "Services",mykey: servicekey),
       ),
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: TextButton(onPressed: (){Scrollable.ensureVisible(servicekey.currentContext!);
-        if(ismobile){Navigator.pop(context);}},
-          child: Text('Services',style: TextStyle(color: Colors.white,))),
+        child: HeaderButton(name: "Resume",mykey: resumetkey),
       ),
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: TextButton(onPressed: (){
-          Scrollable.ensureVisible(resumetkey.currentContext!);
-          if(ismobile){Navigator.pop(context);}
-        },
-
-            child: Text('Resume',style: TextStyle(color: Colors.white,))),
-      ),
+          child: HeaderButton(name: "Projects",mykey: projectkey),
+        ),
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: TextButton(onPressed: (){
-          if(ismobile){Navigator.pop(context);}
-        }, child: Text('Portfolio',style: TextStyle(color: Colors.white,))),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: TextButton(onPressed: (){
-          Scrollable.ensureVisible(contactkey.currentContext!);
-          if(ismobile){Navigator.pop(context);}
-        }, child: Text('Contact',style: TextStyle(color: Colors.white,))),
+        child: HeaderButton(name: "Contact",mykey: contactkey),
       ),];
     super.initState();
   }

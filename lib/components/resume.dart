@@ -106,7 +106,7 @@ class Resume extends StatelessWidget{
           SizedBox(height: 5,),
           Wrap(
             runSpacing: 10,
-            spacing: 10,
+            spacing: 20,
             children: [
               SkillProgrammingLanguages(),
               SkillFrameworks(),
@@ -247,12 +247,9 @@ class Resume extends StatelessWidget{
          Timeline.tileBuilder(
            shrinkWrap: true,
            scrollDirection: Axis.vertical,
-
            builder: TimelineTileBuilder.fromStyle(
-
              itemCount: events.length,
              contentsAlign:ContentsAlign.alternating,
-
              contentsBuilder: (context,index){
                return Card(
                  child: events[index],
