@@ -63,7 +63,7 @@ class AboutState extends State<About>{
           SizedBox(
             width: 700,
             child: Text("Hello! I’m Saliq Javeed , a Flutter Developer with a robust skill set in  Flutter,"
-                " Dart, SQL, Java, XML, SQLite, and more. Currently in my final  year of B.Tech Computer Science,"
+                " Dart, SQL, Java, XML, SQLite, Firebase and more. Currently in my final  year of B.Tech Computer Science,"
                 " I'm actively working as an intern on  the Miety project at MANUU. With my knowledge "
                 "and experience,  I strive to create efficient and innovative solutions in the realm of mobile development.",
                 style: TextStyle(fontSize:20,color: Colors.white)),
