@@ -76,9 +76,9 @@ class Resume extends StatelessWidget{
                        SizedBox(height: 5,),
                        Row(mainAxisAlignment: MainAxisAlignment.center,
                          children: [
-                         Text('03/2024-PRESENT',style: TextStyle(fontWeight: FontWeight.bold),),
+                         Text('03/2024-PRESENT',style: TextStyle(fontWeight: FontWeight.bold,),),
                        Text(' | ',style: TextStyle(fontSize:20,fontWeight: FontWeight.bold,color: CupertinoColors.white),),
-                       Text("INTERN",style: TextStyle(fontWeight: FontWeight.bold,),)],),
+                       Text("INTERN",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.deepOrange),)],),
                        Text("Flutter Developer")
                      ]
                    ),
