@@ -90,7 +90,7 @@ class Contact extends StatelessWidget{
   }
 
   Future<void> openurl(String url)async {
-    print('in open url');
+    print('in openurl');
     if(!await launchUrl(Uri.parse(url),mode: LaunchMode.inAppBrowserView)){
         throw Exception('could not open url');
     }
